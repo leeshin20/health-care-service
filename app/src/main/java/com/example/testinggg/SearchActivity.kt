@@ -1,4 +1,4 @@
-package com.example.testinggg
+package com.example.healthcareapplication
 
 import android.annotation.SuppressLint
 import android.os.Bundle

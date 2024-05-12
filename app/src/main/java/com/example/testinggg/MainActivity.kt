@@ -1,4 +1,4 @@
-package com.example.testinggg
+package com.example.healthcareapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
