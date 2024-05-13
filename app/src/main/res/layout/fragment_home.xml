@@ -1,45 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".MainActivity">
 
-    <!-- 날짜 표시 TextView -->
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="72dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.41">
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="150dp"
+                android:layout_height="250dp"
+                android:layout_weight="1"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <LinearLayout
+                    android:id="@+id/listView"
+                    android:layout_width="391dp"
+                    android:layout_height="382dp"
+                    android:background="#9DCFFF"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.094" />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="250dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/right_text"
+                    android:layout_width="170dp"
+                    android:layout_height="200dp"
+                    android:text="Your text here" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:text="추가하기" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="104dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="0dp"
+                android:layout_height="248dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/downleft_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your long content here" />
+            </ScrollView>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="141dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="58dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.796"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.047" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="98dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="28dp"
+            android:text="오늘의 식단"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.314"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.575" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav_view"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="날짜: 2024/05/08"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_nav_menu" />
 
-    <!-- 오늘의 식단 TextView -->
-    <TextView
-        android:id="@+id/tvMealPlan"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="오늘의 식단: 샐러드, 치킨"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-    <!-- 오늘의 운동 TextView -->
-    <TextView
-        android:id="@+id/tvExercise"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="오늘의 운동: 조깅 30분"
-        app:layout_constraintTop_toBottomOf="@+id/tvMealPlan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
