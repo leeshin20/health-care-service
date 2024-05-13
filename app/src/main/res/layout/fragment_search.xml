@@ -20,6 +20,10 @@
         android:inputType="text"/>
 
     <!-- 검색 결과를 표시할 TextView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
     <TextView
         android:id="@+id/result_text"
         android:layout_width="match_parent"
@@ -27,5 +31,5 @@
         android:padding="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="16sp" />  <!-- 텍스트 크기 설정 -->
-
+    </ScrollView>
 </LinearLayout>
