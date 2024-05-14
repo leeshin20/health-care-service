@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "445669135980",
+    "project_id": "syu-healthcare",
+    "storage_bucket": "syu-healthcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445669135980:android:92af0d51602c9050fdea49",
+        "android_client_info": {
+          "package_name": "com.example.healthcareapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTAHmCYsSr4VPJIpkBQBG8z-D0MLCY-JM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
