@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SearchFragment">
+    tools:context=".fragments.SearchFragment">
 
     <!-- 검색 입력 필드 -->
     <EditText

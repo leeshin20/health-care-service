@@ -30,10 +30,11 @@ class HomeFragment : Fragment() {
         val createTextBtn: Button = rootView.findViewById(R.id.button2)
         //SearchFragment로 화면 전환
         createTextBtn.setOnClickListener {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, SearchFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
+            createView()
+        //val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            //transaction.replace(R.id.fragment_container, SearchFragment())
+            //transaction.addToBackStack(null)
+            //transaction.commit()
         }
 
         return rootView
