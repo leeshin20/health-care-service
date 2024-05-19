@@ -70,23 +70,36 @@
                     android:layout_width="300dp"
                     android:layout_height="250dp"
                     android:layout_marginBottom="104dp"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
-
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="오늘의 운동"
+                        android:gravity="center"/>
                     <ScrollView
                         android:id="@+id/scrollView2"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="248dp"
                         android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/downleft_text"
+                        <LinearLayout
+                            android:id="@+id/listView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Your long content here" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
                     </ScrollView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/workoutBtn"
+                        android:text="운동 추가하러가기"/>
                 </LinearLayout>
                 <TextView
                     android:id="@+id/tvDate"

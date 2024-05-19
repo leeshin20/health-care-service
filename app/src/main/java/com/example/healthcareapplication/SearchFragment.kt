@@ -23,7 +23,7 @@ class SearchFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val searchInput: EditText = view.findViewById(R.id.search_input)
-        resultText = view.findViewById(R.id.result_text)
+        resultText = view.findViewById(R.id.result_text1)
 
         searchInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
