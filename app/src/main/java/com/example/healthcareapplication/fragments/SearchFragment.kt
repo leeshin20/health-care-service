@@ -7,16 +7,28 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.healthcareapplication.R
+import com.example.healthcareapplication.DATA.Userdata
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import org.json.JSONObject
 import java.net.URLEncoder
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class SearchFragment : Fragment() {
     private lateinit var resultText: TextView
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+    private var uid = ""
+    private var userdata: Userdata? = null  // Userdata 객체를 null로 초기화
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +36,17 @@ class SearchFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val searchInput: EditText = view.findViewById(R.id.search_input)
-        resultText = view.findViewById(R.id.result_text)
+        resultText = view.findViewById(R.id.result_text1)
+
+        // Initialize Firebase Auth and Database
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
+        // Get current user ID
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            uid = currentUser.uid
+        }
 
         searchInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -37,6 +59,10 @@ class SearchFragment : Fragment() {
             } else false
         }
 
+        resultText.setOnClickListener {
+            saveDataToFirebase()
+        }
+
         return view
     }
 
@@ -46,7 +72,7 @@ class SearchFragment : Fragment() {
         val serviceId = "I2790"
         val dataType = "json"
         val startIdx = "1"
-        val endIdx = "100"
+        val endIdx = "1"
         val url = "http://openapi.foodsafetykorea.go.kr/api/$keyId/$serviceId/$dataType/$startIdx/$endIdx/DESC_KOR=$encodedQuery"
 
         val requestQueue = Volley.newRequestQueue(requireContext())
@@ -76,13 +102,23 @@ class SearchFragment : Fragment() {
                     val sugars = item.optString("NUTR_CONT5", "N/A")
                     val sodium = item.optString("NUTR_CONT6", "N/A")
 
+                    // Userdata 객체에 데이터를 저장
+                    userdata = Userdata(
+                        foodname = foodName,
+                        calories = calories.toDoubleOrNull() ?: 0.0,
+                        carbs = carbs.toDoubleOrNull() ?: 0.0,
+                        protein = protein.toDoubleOrNull() ?: 0.0,
+                        sugars = sugars.toDoubleOrNull() ?: 0.0,
+                        sodium = sodium.toDoubleOrNull() ?: 0.0
+                    )
+
                     resultText.append("""
-                        $foodName:
-                        Calories: $calories kcal
-                        Carbohydrates: $carbs g
-                        Protein: $protein g
-                        Sugars: $sugars g
-                        Sodium: $sodium mg
+                        ${userdata?.foodname}:
+                        칼로리: ${userdata?.calories} kcal
+                        탄수화물: ${userdata?.carbs} g
+                        단백질: ${userdata?.protein} g
+                        당류: ${userdata?.sugars} g
+                        나트륨: ${userdata?.sodium} mg
                     """.trimIndent())
                     resultText.append("\n\n")
                 }
@@ -91,7 +127,25 @@ class SearchFragment : Fragment() {
                 resultText.text = "No results found for \"$query\"."
             }
         } catch (e: Exception) {
-            resultText.text = "Failed to parse data: ${e}"
+            resultText.text = "Failed to parse data: ${e.message}"
+        }
+    }
+
+    private fun saveDataToFirebase() {
+        userdata?.let {
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val date = dateFormat.format(Date())
+
+            database.child("users").child(uid).child("nutrition").child(date).push().setValue(it)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(requireContext(), "Data saved successfully", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        } ?: run {
+            Toast.makeText(requireContext(), "No data to save", Toast.LENGTH_SHORT).show()
         }
     }
 }
