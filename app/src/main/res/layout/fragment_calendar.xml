@@ -91,7 +91,7 @@
             android:src="@drawable/ic_calendar" />
 
         <ImageView
-            android:id="@+id/opton"
+            android:id="@+id/option"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_weight="1"

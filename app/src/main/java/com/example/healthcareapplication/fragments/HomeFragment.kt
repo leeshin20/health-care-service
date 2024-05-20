@@ -57,7 +57,9 @@ class HomeFragment : Fragment() {
         binding.button2.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-
+        binding.workoutBtn.setOnClickListener{
+            it.findNavController().navigate(R.id.action_homeFragment_to_workoutFragment)
+        }
         return binding.root
     }
 
