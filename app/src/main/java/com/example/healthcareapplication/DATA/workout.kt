@@ -2,6 +2,7 @@ package com.example.healthcareapplication.DATA
 
 data class workout (
     var workname : String = "",
-    var repeat: String = "",
-    var weight : String = ""
+    var weight : String = "",
+    var repeat: String = ""
+
 )

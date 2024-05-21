@@ -53,7 +53,7 @@ class WorkoutFragment : Fragment() {
                 val weight = weightStr.toDoubleOrNull()
 
                 if (repetitions != null && weight != null) {
-                    val workout = workout(workoutName, repetitionsStr, weightStr)
+                    val workout = workout(workoutName, weightStr, repetitionsStr)
                     saveDataToFirebase(workout)
                 } else {
                     Toast.makeText(context, "Invalid input for repetitions or weight", Toast.LENGTH_SHORT).show()
@@ -115,7 +115,7 @@ class WorkoutFragment : Fragment() {
     }
 
     private fun addWorkoutTextView(workout: workout) {
-        val workoutInfo = "운동명: ${workout.workname}, 반복: ${workout.repeat}, 무게: ${workout.weight}"
+        val workoutInfo = "운동명: ${workout.workname}, 무게: ${workout.weight}kg ,반복: ${workout.repeat}회"
 
         val textView = TextView(requireContext())
         textView.text = workoutInfo
