@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.recordFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".fragments.recordFragment">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <!--전체 레이아웃-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"/>
+            <!--첫번째 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="30dp">
+                    <TextView
+                        android:id="@+id/secondTextView"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </ScrollView>
 
-</FrameLayout>
+            </LinearLayout>
+            <!--두번째 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="30dp">
+                    <LinearLayout
+                        android:id="@+id/firstTextView"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"/>
+
+
+                </ScrollView>
+
+            </LinearLayout>
+            <!--세번째 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/thirdTextView"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"/>
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
