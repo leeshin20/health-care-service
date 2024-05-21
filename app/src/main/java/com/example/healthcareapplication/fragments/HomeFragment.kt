@@ -54,7 +54,10 @@ class HomeFragment : Fragment() {
         }
         binding.option.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_optionFragment)
+            Log.d("option", "option1")
         }
+
+
         binding.button2.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }

@@ -5,11 +5,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.communityFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--하단 검정 박스 -->
                 <LinearLayout
                     android:id="@+id/linearLayout6"
                     android:layout_width="match_parent"
@@ -35,12 +40,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
-
-
-
                 </LinearLayout>
 
-
+                <!--하단 안드로이드 터치 버튼 -->
                 <LinearLayout
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
@@ -50,34 +52,35 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageView
-                        android:id="@+id/hometap"
+                        android:id="@+id/Ohometap"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_calendar"/>
 
                     <ImageView
-                        android:id="@+id/calender"
+                        android:id="@+id/Ocalender"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_calendar" />
 
                     <ImageView
-                        android:id="@+id/community"
+                        android:id="@+id/Ocommunity"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_calendar" />
 
                     <ImageView
-                        android:id="@+id/opton"
+                        android:id="@+id/Ooption"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_calendar" />
 
                 </LinearLayout>
+                <!--하단 텍스트바 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,4 +113,5 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
+    </FrameLayout>
 </layout>
