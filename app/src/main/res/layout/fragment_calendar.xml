@@ -8,7 +8,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.CalendarFragment">
+        tools:context=".fragments.CalendarFragment"
+        android:background="#e9ecef">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:background="#6DF6EA"
+                android:background="#e9ecef"
                 android:gravity="center"
                 android:text="달력"
                 android:textSize="50dp"
@@ -29,7 +30,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout6"/>
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/background_radius"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout6"
+                />
             <LinearLayout
                 android:id="@+id/linearLayout6"
                 android:layout_width="match_parent"
