@@ -97,6 +97,12 @@
         <action
             android:id="@+id/action_communityFragment_to_optionFragment"
             app:destination="@id/optionFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_communityWriteFragment"
+            app:destination="@id/communityWriteFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_contentclickFragment"
+            app:destination="@id/contentclickFragment" />
     </fragment>
     <fragment
         android:id="@+id/recordFragment"
@@ -128,4 +134,18 @@
             android:id="@+id/action_workoutFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/communityWriteFragment"
+        android:name="com.example.healthcareapplication.fragments.CommunityWriteFragment"
+        android:label="fragment_community_write"
+        tools:layout="@layout/fragment_community_write" >
+        <action
+            android:id="@+id/action_communityWriteFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentclickFragment"
+        android:name="com.example.healthcareapplication.fragments.contentclickFragment"
+        android:label="fragment_contentclick"
+        tools:layout="@layout/fragment_contentclick" />
 </navigation>
