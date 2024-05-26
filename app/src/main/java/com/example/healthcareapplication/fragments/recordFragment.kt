@@ -173,37 +173,6 @@ private lateinit var binding : FragmentRecordBinding
         textView1.setPadding(16, 16, 16, 16)
         containerLayout2.addView(textView1)
 
-        textView1.setOnClickListener {
-            // AlertDialog를 이용하여 삭제 여부 확인
-            val alertDialogBuilder = AlertDialog.Builder(requireContext())
-            alertDialogBuilder.apply {
-                setTitle("운동 삭제")
-                setMessage("${workInfo}을(를) 삭제하시겠습니까?")
-                setPositiveButton("예") { _, _ ->
-                    // 삭제 처리
-                    deleteworkFromFirebase(workId)
-                    // View에서도 삭제
-                    containerLayout2.removeView(textView1)
-                }
-                setNegativeButton("아니오", null)
-            }
-            alertDialogBuilder.create().show()
-        }
-    }
-
-    private fun deleteworkFromFirebase(workId: String?) {
-        val userId = auth.currentUser?.uid ?: return
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val date = dateFormat.format(Date())
-
-        val workRef = database.child("users").child(userId).child("exercise").child(date).child(workId ?: return)
-
-        workRef.removeValue().addOnSuccessListener {
-            Toast.makeText(requireContext(), "운동 삭제 완료", Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener { error ->
-            Log.e(ContentValues.TAG, "데이터베이스 오류: ${error.message}")
-            Toast.makeText(requireContext(), "데이터베이스 오류", Toast.LENGTH_SHORT).show()
-        }
     }
 
 

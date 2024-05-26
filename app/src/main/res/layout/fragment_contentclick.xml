@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.contentclickFragment"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/contenttitle"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="title"
+            android:gravity="center"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/contenttime"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="title"
+            android:gravity="right"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"/>
+        <TextView
+            android:id="@+id/contentcontent"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/hello_blank_fragment" />
+
+    </LinearLayout>
+</layout>

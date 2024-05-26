@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".fragments.communityFragment">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
+                    <ListView
+                        android:id="@+id/listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="600dp">
+                    </ListView>
+
+                    <Button
+                        android:layout_gravity="right"
+                        android:id="@+id/writeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Write Post" />
+                </LinearLayout>
                 <!--하단 검정 박스 -->
+
                 <LinearLayout
                     android:id="@+id/linearLayout6"
                     android:layout_width="match_parent"
@@ -82,36 +94,39 @@
                 </LinearLayout>
                 <!--하단 텍스트바 -->
                 <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:weightSum="4"
                     app:layout_constraintBottom_toBottomOf="parent">
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="홈"/>
+                        android:text="홈" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="달력"/>
+                        android:text="달력" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="게시판"/>
+                        android:text="게시판" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="설정"/>
+                        android:text="설정" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
-    </FrameLayout>
 </layout>
