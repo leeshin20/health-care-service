@@ -35,6 +35,7 @@ class contentlist(val contentmodelList: MutableList<ContentModel>) : BaseAdapter
         val time = converView?.findViewById<TextView>(R.id.time)
         time!!.text = contentmodelList[position].time
 
+
         return converView!!
     }
 }
