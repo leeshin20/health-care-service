@@ -27,6 +27,7 @@ class CommunityFragment : Fragment() {
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
     private val boardDataList = mutableListOf<ContentModel>()
+    private val boardDataKey = mutableListOf<String>()
     private lateinit var adapter: contentlist
 
     override fun onCreateView(
@@ -65,6 +66,7 @@ class CommunityFragment : Fragment() {
                 putString("content", selectedItem.content)
                 putString("uid", selectedItem.uid)
                 putString("time", selectedItem.time)
+                putString("key", boardDataKey[position])
             }
             findNavController().navigate(R.id.action_communityFragment_to_contentclickFragment, bundle)
         }
@@ -80,13 +82,14 @@ class CommunityFragment : Fragment() {
                 boardDataList.clear()
                 for (dataModel in datasnapshot.children) {
                     val item = dataModel.getValue(ContentModel::class.java)
+
                     if (item != null) {
                         boardDataList.add(item)
-                        Log.d("test", "Item added: ${item.title}")
-                    } else {
-                        Log.d("test", "Item is null")
-                    }
+                        boardDataKey.add(dataModel.key.toString())
+                        } else {
+                        }
                 }
+                boardDataKey.reverse()
                 boardDataList.reverse()
                 adapter.notifyDataSetChanged()
                 Log.d("test", "Adapter notified. Item count: ${adapter.count}")
