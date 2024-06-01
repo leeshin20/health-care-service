@@ -1,5 +1,4 @@
 package com.example.healthcareapplication.fragments
-
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -45,6 +44,7 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         containerLayout = binding.listView // listView가 있는 LinearLayout 컨테이너로 가정
         containerLayout2 = binding.listView2
+
         // 네비게이션 버튼들에 대한 클릭 리스너 설정
         binding.calender.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_calendarFragment)
@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
             Log.d("option", "option1")
         }
 
-
+        // button2 = 음식 검색 workoutBtn = 운동 추가
         binding.button2.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }

@@ -35,7 +35,7 @@ class StartActivity : AppCompatActivity() {
                         startActivity(intent)
                     } else {
                         val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                        //startActivity(intent)
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG).show()
                         //수정 필요함
                         Log.e("FirebaseAuth", "signInAnonymously:failure", task.exception)

@@ -1,13 +1,17 @@
 package com.example.healthcareapplication.DATA
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.healthcareapplication.R
+import com.google.firebase.auth.FirebaseAuth
 
 class contentlist(val contentmodelList: MutableList<ContentModel>) : BaseAdapter() {
+    private lateinit var auth: FirebaseAuth
     override fun getCount(): Int {
         return contentmodelList.size
     }
@@ -21,9 +25,14 @@ class contentlist(val contentmodelList: MutableList<ContentModel>) : BaseAdapter
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        auth = FirebaseAuth.getInstance()
+        val userId = auth.currentUser?.uid ?: ""
         var converView = convertView
-        if(converView == null) {
             converView = LayoutInflater.from(parent?.context).inflate(R.layout.contentlistview, parent, false)
+        val itemLinearView = converView?.findViewById<LinearLayout>(R.id.itemView)
+
+        if(contentmodelList[position].uid == userId){
+            itemLinearView?.setBackgroundColor(Color.parseColor("#ffa500"))
         }
 
         val title = converView?.findViewById<TextView>(R.id.title)
