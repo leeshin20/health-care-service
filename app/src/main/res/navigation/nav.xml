@@ -147,5 +147,23 @@
         android:id="@+id/contentclickFragment"
         android:name="com.example.healthcareapplication.fragments.contentclickFragment"
         android:label="fragment_contentclick"
-        tools:layout="@layout/fragment_contentclick" />
+        tools:layout="@layout/fragment_contentclick" >
+        <action
+            android:id="@+id/action_contentclickFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_contentclickFragment_to_boardEditFragment"
+            app:destination="@id/boardEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/boardEditFragment"
+        android:name="com.example.healthcareapplication.fragments.BoardEditFragment"
+        android:label="BoardEditFragment" >
+        <action
+            android:id="@+id/action_boardEditFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <argument
+            android:name="contentment"
+            app:argType="string" />
+    </fragment>
 </navigation>
