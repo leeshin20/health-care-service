@@ -197,21 +197,11 @@
                         android:id="@+id/todayFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="65dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="115dp"
                         android:fontFamily="@font/inter_bold"
                         android:text="오늘의 식단"
-                        android:textColor="@color/black" />
-
-                    <TextView
-                        android:id="@+id/todayFoodPlus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="85dp"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="+"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -221,22 +211,13 @@
                     android:layout_height="150dp"
                     android:layout_marginTop="72dp"
                     android:orientation="horizontal"
+                    android:background="@drawable/outline"
                     app:layout_constraintBottom_toTopOf="@+id/workoutLinearLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.504"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.928">
-
-                    <TextView
-                        android:id="@+id/foodEmptyText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="82dp"
-                        android:layout_marginTop="40dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="등록된 식단이 없습니다"
-                        android:textColor="@color/gray" />
 
                     <ScrollView
                         android:id="@+id/scrollView1"
@@ -265,8 +246,20 @@
 
                         <TextView
                             android:id="@+id/right_text"
-                            android:layout_width="170dp"
-                            android:layout_height="150dp" />
+                            android:layout_width="150dp"
+                            android:layout_height="100dp" />
+
+                        <Button
+                            android:id="@+id/foodButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="99dp"
+                            android:background="@drawable/round_button"
+                            android:elevation="4dp"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textColor="@android:color/white"
+                            android:textSize="30dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -288,22 +281,13 @@
                         android:id="@+id/todayWorkout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="65dp"
+                        android:layout_marginLeft="115dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/inter_bold"
                         android:text="오늘의 운동"
                         android:textColor="@color/white" />
 
-                    <TextView
-                        android:id="@+id/addTodayWorkout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="85dp"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="+"
-                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -312,6 +296,7 @@
                     android:layout_height="150dp"
                     android:layout_marginBottom="104dp"
                     android:orientation="vertical"
+                    android:background="@drawable/outline"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
@@ -332,6 +317,19 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </ScrollView>
+
+                    <Button
+                        android:id="@+id/workoutButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round_button"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@android:color/white"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="250dp"/>
+
                 </LinearLayout>
 
                 <LinearLayout

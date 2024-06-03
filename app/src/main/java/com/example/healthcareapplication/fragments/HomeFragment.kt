@@ -58,10 +58,10 @@ class HomeFragment : Fragment() {
         }
 
         // button2 = 음식 검색 workoutBtn = 운동 추가
-        binding.foodLinearLayout.setOnClickListener {
+        binding.foodButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        binding.workoutLinearLayout.setOnClickListener{
+        binding.workoutButton.setOnClickListener{
             it.findNavController().navigate(R.id.action_homeFragment_to_workoutFragment)
         }
         return binding.root
