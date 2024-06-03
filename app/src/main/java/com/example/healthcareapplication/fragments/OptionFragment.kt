@@ -10,12 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.example.healthcareapplication.data.ContentData
 import com.example.healthcareapplication.R
 import com.example.healthcareapplication.aboutlog.LoadingActivity
 import com.example.healthcareapplication.databinding.FragmentOptionBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class OptionFragment : Fragment() {
     private lateinit var binding: FragmentOptionBinding

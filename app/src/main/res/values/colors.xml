@@ -2,5 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#FFF111</color>
+    <color name="background">#FFFFFF</color>
+    <color name="box_color">#F1F1F1</color>
+    <color name="workout_color">#FF1E00</color>
+    <color name="food_color">#59CE8F</color>
+    <color name="sub_color">#E8F9FD</color>
+    <color name="gray">#D3D3D3</color>
 </resources>

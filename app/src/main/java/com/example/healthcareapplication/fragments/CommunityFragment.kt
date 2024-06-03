@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.healthcareapplication.data.ContentData
 import com.example.healthcareapplication.data.Contentlist
 import com.example.healthcareapplication.R
+import com.example.healthcareapplication.data.ContentModel
 import com.example.healthcareapplication.databinding.FragmentCommunityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
