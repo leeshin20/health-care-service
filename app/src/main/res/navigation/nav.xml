@@ -106,7 +106,7 @@
     </fragment>
     <fragment
         android:id="@+id/recordFragment"
-        android:name="com.example.healthcareapplication.fragments.recordFragment"
+        android:name="com.example.healthcareapplication.fragments.RecordFragment"
         android:label="fragment_record"
         tools:layout="@layout/fragment_record" >
         <action
@@ -145,7 +145,7 @@
     </fragment>
     <fragment
         android:id="@+id/contentclickFragment"
-        android:name="com.example.healthcareapplication.fragments.contentclickFragment"
+        android:name="com.example.healthcareapplication.fragments.`ContentC]lickFragment`"
         android:label="fragment_contentclick"
         tools:layout="@layout/fragment_contentclick" >
         <action

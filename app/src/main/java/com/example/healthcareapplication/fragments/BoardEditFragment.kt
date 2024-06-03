@@ -14,12 +14,10 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.healthcareapplication.DATA.ContentData
-import com.example.healthcareapplication.DATA.ContentModel
 import com.example.healthcareapplication.R
+import com.example.healthcareapplication.data.ContentData
+import com.example.healthcareapplication.data.ContentModel
 import com.example.healthcareapplication.databinding.FragmentBoardEditBinding
-import com.example.healthcareapplication.databinding.FragmentCommunityWriteBinding
-import com.example.healthcareapplication.utils.FireBaseRef.Companion.database
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -86,7 +84,8 @@ class BoardEditFragment : Fragment() {
                 ContentModel(binding.title.text.toString(),
                 binding.content.text.toString(),
                 writerUid,
-                dateFormat)).addOnSuccessListener{
+                dateFormat)
+            ).addOnSuccessListener{
                 ImageUpload(contentkey)
             }
     }

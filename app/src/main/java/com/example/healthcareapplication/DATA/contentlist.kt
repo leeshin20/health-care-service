@@ -1,4 +1,4 @@
-package com.example.healthcareapplication.DATA
+package com.example.healthcareapplication.data
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import android.widget.TextView
 import com.example.healthcareapplication.R
 import com.google.firebase.auth.FirebaseAuth
 
-class contentlist(val contentmodelList: MutableList<ContentModel>) : BaseAdapter() {
+class Contentlist(val contentmodelList: MutableList<ContentModel>) : BaseAdapter() {
     private lateinit var auth: FirebaseAuth
     override fun getCount(): Int {
         return contentmodelList.size

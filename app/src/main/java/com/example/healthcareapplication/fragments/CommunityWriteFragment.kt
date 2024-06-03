@@ -13,8 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import com.example.healthcareapplication.DATA.ContentData
-import com.example.healthcareapplication.DATA.ContentModel
+import com.example.healthcareapplication.data.ContentData
 import com.example.healthcareapplication.R
 import com.example.healthcareapplication.databinding.FragmentCommunityWriteBinding
 import com.google.firebase.auth.FirebaseAuth

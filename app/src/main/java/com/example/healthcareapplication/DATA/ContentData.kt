@@ -1,9 +1,7 @@
-package com.example.healthcareapplication.DATA
+package com.example.healthcareapplication.data
 
-import com.google.firebase.database.database
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.util.Date
 
 class ContentData {
     companion object {
@@ -12,10 +10,3 @@ class ContentData {
         val boardRef = database.getReference("contents")
     }
 }
-
-data class ContentModel(
-    val title : String = "",
-    val content : String = "",
-    val uid : String = "",
-    val time : String = ""
-)

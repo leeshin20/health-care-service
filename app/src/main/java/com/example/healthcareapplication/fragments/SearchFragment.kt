@@ -13,7 +13,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.healthcareapplication.R
-import com.example.healthcareapplication.DATA.Userdata
+import com.example.healthcareapplication.data.Userdata
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

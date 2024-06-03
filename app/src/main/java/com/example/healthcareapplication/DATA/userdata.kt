@@ -1,4 +1,4 @@
-package com.example.healthcareapplication.DATA
+package com.example.healthcareapplication.data
 
 data class Userdata(
     var foodname: String = "",

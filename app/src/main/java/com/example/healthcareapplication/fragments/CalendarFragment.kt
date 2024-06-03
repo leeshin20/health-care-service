@@ -28,15 +28,15 @@ class CalendarFragment : Fragment() {
         val calendarView: CalendarView = view.findViewById(R.id.calendarView)
         // val selectedDateText: TextView = view.findViewById(R.id.selected_date)
 
-        binding.Chometap.setOnClickListener {
+        binding.CalendarHomeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_homeFragment)
             Log.d("tag", "home")
         }
-        binding.Ccommunity.setOnClickListener {
+        binding.CalendarCommunity.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_communityFragment)
             Log.d("tag", "co")
         }
-        binding.Coption.setOnClickListener {
+        binding.CalendarOption.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_optionFragment)
             Log.d("tag", "op")
         }

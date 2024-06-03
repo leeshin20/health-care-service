@@ -69,8 +69,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val tvYear: TextView = view.findViewById(R.id.tvYear)
         val tvDate: TextView = view.findViewById(R.id.tvDate)
-        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val currentYear = SimpleDateFormat("yyyy", Locale.getDefault()).format(Date())
+        val currentDate = SimpleDateFormat("MM월 dd일", Locale.getDefault()).format(Date())
+        tvYear.text = currentYear
         tvDate.text = currentDate
 
         // 현재 날짜의 데이터를 가져오기 위해 fetchData(currentDate) 호출

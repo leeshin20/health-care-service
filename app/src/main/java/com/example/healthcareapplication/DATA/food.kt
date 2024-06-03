@@ -1,6 +1,6 @@
-package com.example.healthcareapplication.DATA
+package com.example.healthcareapplication.data
 
-data class userdata (
+data class Food (
     var foodname : String = "",
     var calories : Double = 0.0,
     var carbs : Double = 0.0,

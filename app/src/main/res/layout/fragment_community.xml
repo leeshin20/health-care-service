@@ -1,132 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ListView
+                android:id="@+id/listview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                android:layout_height="600dp">
+            </ListView>
 
-                    <ListView
-                        android:id="@+id/listview"
-                        android:layout_width="match_parent"
-                        android:layout_height="600dp">
-                    </ListView>
+            <Button
+                android:id="@+id/writeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Write Post" />
+        </LinearLayout>
+        <!--하단 검정 박스 -->
 
-                    <Button
-                        android:layout_gravity="right"
-                        android:id="@+id/writeBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Write Post" />
-                </LinearLayout>
-                <!--하단 검정 박스 -->
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
 
-                <LinearLayout
-                    android:id="@+id/linearLayout6"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                    <LinearLayout
-                        android:background="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/black" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-                <!--하단 안드로이드 터치 버튼 -->
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@color/white"
-                    android:weightSum="4"
-                    app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-                    <ImageView
-                        android:id="@+id/Cohometap"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_calendar"/>
+            <ImageView
+                android:id="@+id/CommunityHomeTap"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="7dp"
+                android:layout_weight="1"
+                android:src="@drawable/bottom_nav_home" />
 
-                    <ImageView
-                        android:id="@+id/Cocalender"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+            <ImageView
+                android:id="@+id/CommunityCalender"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="7dp"
+                android:layout_weight="1"
+                android:src="@drawable/bottom_nav_calendar" />
 
-                    <ImageView
-                        android:id="@+id/Cocommunity"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+            <ImageView
+                android:id="@+id/community"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="7dp"
+                android:layout_weight="1"
+                android:src="@drawable/bottom_nav_board" />
 
-                    <ImageView
-                        android:id="@+id/Cooption"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+            <ImageView
+                android:id="@+id/CommunityOption"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_margin="7dp"
+                android:layout_weight="1"
+                android:src="@drawable/bottom_nav_setting" />
 
-                </LinearLayout>
-                <!--하단 텍스트바 -->
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="4"
-                    app:layout_constraintBottom_toBottomOf="parent">
+        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="홈" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="달력" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="홈" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="게시판" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="달력" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="설정" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="게시판" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="설정" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

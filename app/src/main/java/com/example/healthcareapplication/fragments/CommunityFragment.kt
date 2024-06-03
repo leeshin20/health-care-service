@@ -9,9 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.healthcareapplication.DATA.ContentData
-import com.example.healthcareapplication.DATA.ContentModel
-import com.example.healthcareapplication.DATA.contentlist
+import com.example.healthcareapplication.data.ContentData
+import com.example.healthcareapplication.data.Contentlist
 import com.example.healthcareapplication.R
 import com.example.healthcareapplication.databinding.FragmentCommunityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -28,14 +27,14 @@ class CommunityFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private val boardDataList = mutableListOf<ContentModel>()
     private val boardDataKey = mutableListOf<String>()
-    private lateinit var adapter: contentlist
+    private lateinit var adapter: Contentlist
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_community, container, false)
-        adapter = contentlist(boardDataList)
+        adapter = Contentlist(boardDataList)
         binding.listview.adapter = adapter
         val view = binding.root
 
@@ -46,15 +45,15 @@ class CommunityFragment : Fragment() {
             it.findNavController().navigate(R.id.action_communityFragment_to_communityWriteFragment)
         }
 
-        binding.Cohometap.setOnClickListener {
+        binding.CommunityHomeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_communityFragment_to_homeFragment)
             Log.d("tag", "home")
         }
-        binding.Cocalender.setOnClickListener {
+        binding.CommunityCalender.setOnClickListener {
             it.findNavController().navigate(R.id.action_communityFragment_to_calendarFragment)
             Log.d("tag", "community")
         }
-        binding.Cooption.setOnClickListener {
+        binding.CommunityOption.setOnClickListener {
             it.findNavController().navigate(R.id.action_communityFragment_to_optionFragment)
             Log.d("tag", "option")
         }

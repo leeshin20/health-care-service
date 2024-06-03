@@ -1,6 +1,6 @@
-package com.example.healthcareapplication.DATA
+package com.example.healthcareapplication.data
 
-data class workout (
+data class Workout (
     var workname : String = "",
     var weight : String = "",
     var repeat: String = ""

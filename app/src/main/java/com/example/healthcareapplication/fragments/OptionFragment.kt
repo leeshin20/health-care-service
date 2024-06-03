@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.example.healthcareapplication.DATA.ContentData
+import com.example.healthcareapplication.data.ContentData
 import com.example.healthcareapplication.R
 import com.example.healthcareapplication.aboutlog.LoadingActivity
 import com.example.healthcareapplication.databinding.FragmentOptionBinding
@@ -36,15 +36,15 @@ class OptionFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.Ohometap.setOnClickListener {
+        binding.OptionHomeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_optionFragment_to_homeFragment)
             Log.d("tag", "home")
         }
-        binding.Ocalender.setOnClickListener {
+        binding.OptionCalender.setOnClickListener {
             it.findNavController().navigate(R.id.action_optionFragment_to_calendarFragment)
             Log.d("tag", "community")
         }
-        binding.Ocommunity.setOnClickListener {
+        binding.OptionCommunity.setOnClickListener {
             it.findNavController().navigate(R.id.action_optionFragment_to_communityFragment)
             Log.d("tag", "option")
         }

@@ -14,20 +14,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.healthcareapplication.DATA.ContentData
-import com.example.healthcareapplication.DATA.ContentModel
+import com.example.healthcareapplication.data.ContentData
 import com.example.healthcareapplication.R
+import com.example.healthcareapplication.data.ContentModel
 import com.example.healthcareapplication.databinding.FragmentContentclickBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
-class contentclickFragment : Fragment() {
+class ContentClickFragment : Fragment() {
     private lateinit var binding: FragmentContentclickBinding
     private lateinit var key: String
     private lateinit var auth: FirebaseAuth

@@ -50,7 +50,6 @@
                         android:layout_weight="1" />
                 </LinearLayout>
 
-                <!--하단 안드로이드 터치 버튼 -->
                 <LinearLayout
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
@@ -60,64 +59,72 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageView
-                        android:id="@+id/Ohometap"
+                        android:id="@+id/OptionHomeTap"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="7dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_calendar"/>
+                        android:src="@drawable/bottom_nav_home" />
 
                     <ImageView
-                        android:id="@+id/Ocalender"
+                        android:id="@+id/OptionCalender"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="28dp"
+                        android:layout_margin="7dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+                        android:src="@drawable/bottom_nav_calendar" />
 
                     <ImageView
-                        android:id="@+id/Ocommunity"
+                        android:id="@+id/OptionCommunity"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="7dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+                        android:src="@drawable/bottom_nav_board" />
 
                     <ImageView
-                        android:id="@+id/Ooption"
+                        android:id="@+id/option"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="28dp"
+                        android:layout_margin="7dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_calendar" />
+                        android:src="@drawable/bottom_nav_setting" />
 
                 </LinearLayout>
-                <!--하단 텍스트바 -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:weightSum="4"
                     app:layout_constraintBottom_toBottomOf="parent">
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="홈"/>
+                        android:text="홈" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="달력"/>
+                        android:text="달력" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="게시판"/>
+                        android:text="게시판" />
+
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:text="설정"/>
+                        android:text="설정" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>

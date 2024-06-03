@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.example.healthcareapplication.DATA.workout
+import com.example.healthcareapplication.data.Workout
 import com.example.healthcareapplication.databinding.FragmentWorkoutBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -53,7 +53,7 @@ class WorkoutFragment : Fragment() {
                 val weight = weightStr.toDoubleOrNull()
 
                 if (repetitions != null && weight != null) {
-                    val workout = workout(workoutName, weightStr, repetitionsStr)
+                    val workout = Workout(workoutName, weightStr, repetitionsStr)
                     saveDataToFirebase(workout)
                 } else {
                     Toast.makeText(context, "Invalid input for repetitions or weight", Toast.LENGTH_SHORT).show()
@@ -75,7 +75,7 @@ class WorkoutFragment : Fragment() {
         fetchWorkoutsForDate(currentDate)
     }
 
-    private fun saveDataToFirebase(workout: workout) {
+    private fun saveDataToFirebase(workout: Workout) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = dateFormat.format(Date())
 
@@ -100,7 +100,7 @@ class WorkoutFragment : Fragment() {
                 workoutContainer.removeAllViews() // 기존에 추가된 뷰 모두 삭제
 
                 for (childSnapshot in snapshot.children) {
-                    val workout = childSnapshot.getValue(workout::class.java)
+                    val workout = childSnapshot.getValue(Workout::class.java)
                     workout?.let {
                         addWorkoutTextView(it)
                     }
@@ -114,7 +114,7 @@ class WorkoutFragment : Fragment() {
         })
     }
 
-    private fun addWorkoutTextView(workout: workout) {
+    private fun addWorkoutTextView(workout: Workout) {
         val workoutInfo = "운동명: ${workout.workname}, 무게: ${workout.weight}kg ,반복: ${workout.repeat}회"
 
         val textView = TextView(requireContext())
@@ -128,7 +128,7 @@ class WorkoutFragment : Fragment() {
         }
     }
 
-    private fun showDeleteConfirmationDialog(workout: workout) {
+    private fun showDeleteConfirmationDialog(workout: Workout) {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.apply {
             setTitle("운동 삭제")
@@ -141,7 +141,7 @@ class WorkoutFragment : Fragment() {
         alertDialogBuilder.create().show()
     }
 
-    private fun deleteWorkoutFromFirebase(workout: workout) {
+    private fun deleteWorkoutFromFirebase(workout: Workout) {
         val userId = auth.currentUser?.uid ?: return
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = dateFormat.format(Date())
