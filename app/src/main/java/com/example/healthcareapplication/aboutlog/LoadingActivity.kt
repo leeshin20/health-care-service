@@ -25,13 +25,13 @@ class LoadingActivity : AppCompatActivity() {
             android.os.Handler().postDelayed({
                 startActivity(Intent(this, StartActivity::class.java))
                 finish()
-            }, 3000)
+            }, 1300)
         } else{
             Log.d("SplashActivity", "not null")
             android.os.Handler().postDelayed({
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
-            }, 3000)
+            }, 1300)
         }
     }
 }

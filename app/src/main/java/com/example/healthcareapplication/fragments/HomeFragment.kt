@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
         val tvYear: TextView = view.findViewById(R.id.tvYear)
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val currentYear = SimpleDateFormat("yyyy", Locale.getDefault()).format(Date())
-        val currentDate = SimpleDateFormat("MM월 dd일", Locale.getDefault()).format(Date())
+        val currentDate = SimpleDateFormat("M월 d일", Locale.getDefault()).format(Date())
         tvYear.text = currentYear
         tvDate.text = currentDate
 
