@@ -2,7 +2,6 @@ package com.example.healthcareapplication.aboutlog
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -30,16 +29,7 @@ class StartActivity : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        val intent = Intent(this, MainActivity::class.java)
-                        //startActivity(intent)
-                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG).show()
-                        //수정 필요함
-                        Log.e("FirebaseAuth", "signInAnonymously:failure", task.exception)
-                        Toast.makeText(
-                            this,
-                            "로그인 실패: ${task.exception?.message}",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show()
                     }
                 }
         }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -70,7 +71,6 @@ class CommunityFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_communityFragment_to_contentclickFragment, bundle)
         }
-        // getcontent 호출하여 데이터 로드
         getcontent()
 
         return view
@@ -92,11 +92,10 @@ class CommunityFragment : Fragment() {
                 boardDataKey.reverse()
                 boardDataList.reverse()
                 adapter.notifyDataSetChanged()
-                Log.d("test", "Adapter notified. Item count: ${adapter.count}")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("CommunityFragment", "Failed to read data", error.toException())
+                Toast.makeText(requireContext(), "알 수없는 이유로 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
             }
         }
         ContentData.boardRef.addValueEventListener(postListener)

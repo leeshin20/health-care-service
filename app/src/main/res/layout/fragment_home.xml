@@ -39,23 +39,21 @@
                     android:text="(date)"
                     android:textColor="@color/black"
                     android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.060" />
+                    app:layout_constraintTop_toBottomOf="@id/tvYear" />
 
 
                 <LinearLayout
                     android:id="@+id/statusBox"
                     android:layout_width="300dp"
                     android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.149">
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate">
 
                     <LinearLayout
                         android:id="@+id/statusView"
@@ -87,29 +85,6 @@
                                 android:textColor="@color/black" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:fontFamily="@font/inter_bold"
-                                android:text="소모 칼로리"
-                                android:textColor="@color/black" />
-
-                            <TextView
-                                android:id="@+id/burnedKcal"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="50dp"
-                                android:fontFamily="@font/inter_bold"
-                                android:text="0 Kcal"
-                                android:textColor="@color/black" />
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -121,6 +96,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
+                                android:layout_marginBottom="20dp"
                                 android:fontFamily="@font/inter_bold"
                                 android:text="섭취 칼로리"
                                 android:textColor="@color/black" />
@@ -146,38 +122,37 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="예상 감량 몸무게"
+                            android:layout_gravity="center"
                             android:layout_marginTop="25dp"
                             android:fontFamily="@font/inter_light"
-                            android:textSize="10dp"
-                            android:layout_gravity="center"
+                            android:text="예상 감량 몸무게"
                             android:textAlignment="center"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/TodayWeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0.0Kg"
-                            android:fontFamily="@font/inter_bold"
-                            android:textSize="24dp"
-                            android:layout_marginTop="20dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/black"/>
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="0.0Kg"
+                            android:textColor="@color/black"
+                            android:textSize="24dp" />
 
                         <TextView
                             android:id="@+id/WeightChange"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="( 0.0kg )"
-                            android:fontFamily="@font/inter_medium"
-                            android:textSize="12dp"
-                            android:layout_marginTop="0dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/black"/>
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/inter_medium"
+                            android:text="( 0.0kg )"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
                     </LinearLayout>
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/foodLinearLayout"
@@ -186,20 +161,17 @@
                     android:background="@drawable/box_upper_radius"
                     android:backgroundTint="@color/food_color"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.504"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.358">
+                    app:layout_constraintTop_toBottomOf="@+id/statusBox">
 
                     <TextView
                         android:id="@+id/todayFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="115dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="115dp"
                         android:fontFamily="@font/inter_bold"
                         android:text="오늘의 식단"
                         android:textColor="@color/black" />
@@ -208,16 +180,12 @@
                 <LinearLayout
                     android:id="@+id/todayFoodView"
                     android:layout_width="300dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="72dp"
-                    android:orientation="horizontal"
+                    android:layout_height="100dp"
                     android:background="@drawable/outline"
-                    app:layout_constraintBottom_toTopOf="@+id/workoutLinearLayout"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.504"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.928">
+                    app:layout_constraintTop_toBottomOf="@+id/foodLinearLayout">
 
                     <ScrollView
                         android:id="@+id/scrollView1"
@@ -228,19 +196,17 @@
 
                         <LinearLayout
                             android:id="@+id/listView"
-                            android:layout_width="391dp"
-                            android:layout_height="match_parent"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
                             android:orientation="vertical"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.094"></LinearLayout>
+                            app:layout_constraintStart_toStartOf="parent"></LinearLayout>
                     </ScrollView>
 
                     <LinearLayout
                         android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_height="100dp"
                         android:layout_marginLeft="10dp"
                         android:orientation="vertical">
 
@@ -248,20 +214,23 @@
                             android:id="@+id/right_text"
                             android:layout_width="150dp"
                             android:layout_height="100dp" />
-
-                        <Button
-                            android:id="@+id/foodButton"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginLeft="99dp"
-                            android:background="@drawable/round_button"
-                            android:elevation="4dp"
-                            android:gravity="center"
-                            android:text="+"
-                            android:textColor="@android:color/white"
-                            android:textSize="30dp" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/foodButton"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/round_button"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/todayFoodView"/>
+
 
                 <LinearLayout
                     android:id="@+id/workoutLinearLayout"
@@ -295,8 +264,8 @@
                     android:layout_width="300dp"
                     android:layout_height="150dp"
                     android:layout_marginBottom="104dp"
-                    android:orientation="vertical"
                     android:background="@drawable/outline"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
@@ -322,13 +291,13 @@
                         android:id="@+id/workoutButton"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_marginLeft="250dp"
                         android:background="@drawable/round_button"
                         android:elevation="4dp"
                         android:gravity="center"
                         android:text="+"
                         android:textColor="@android:color/white"
-                        android:textSize="30dp"
-                        android:layout_marginLeft="250dp"/>
+                        android:textSize="30dp" />
 
                 </LinearLayout>
 

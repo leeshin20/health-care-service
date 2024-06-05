@@ -28,7 +28,7 @@ class SearchFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private var uid = ""
-    private var userdata: Userdata? = null  // Userdata 객체를 null로 초기화
+    private var userdata: Userdata? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +38,9 @@ class SearchFragment : Fragment() {
         val searchInput: EditText = view.findViewById(R.id.search_input)
         resultText = view.findViewById(R.id.result_text1)
 
-        // Initialize Firebase Auth and Database
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        // Get current user ID
         val currentUser = auth.currentUser
         if (currentUser != null) {
             uid = currentUser.uid
@@ -50,8 +48,8 @@ class SearchFragment : Fragment() {
 
         searchInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                resultText.text = ""  // Clear previous results
-                val queryText = searchInput.text.toString()
+                resultText.text = ""
+                val queryText = searchInput.text.toString().trim()
                 if (queryText.isNotEmpty()) {
                     fetchNutritionInfo(queryText)
                 }
@@ -81,7 +79,7 @@ class SearchFragment : Fragment() {
                 parseData(response, query)
             },
             { error ->
-                resultText.text = "Error fetching data: ${error.localizedMessage}"
+                resultText.text = "음식이름을 입력해주세요"
             })
         requestQueue.add(stringRequest)
     }
@@ -124,10 +122,10 @@ class SearchFragment : Fragment() {
                 }
             }
             if (!found) {
-                resultText.text = "No results found for \"$query\"."
+                resultText.text = "올바른 음식이름을 입력해주세요"
             }
         } catch (e: Exception) {
-            resultText.text = "Failed to parse data: ${e.message}"
+            resultText.text = "올바른 식품이름를 입력해주세요. 시판 식품일수록 정확도가 올라갑니다."
         }
     }
 
@@ -139,13 +137,13 @@ class SearchFragment : Fragment() {
             database.child("users").child(uid).child("nutrition").child(date).push().setValue(it)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(requireContext(), "Data saved successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "음식 추가 성공", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "데이터 저장 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
         } ?: run {
-            Toast.makeText(requireContext(), "No data to save", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "데이터 저장 실패", Toast.LENGTH_SHORT).show()
         }
     }
 }

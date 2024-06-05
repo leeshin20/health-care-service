@@ -102,7 +102,7 @@ class BoardEditFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "오류가 발생하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
             }
         }
         ContentData.boardRef.child(content).addValueEventListener(postListener)
@@ -118,30 +118,10 @@ class BoardEditFragment : Fragment() {
         })
 
     }
-    private fun fetchContent(title: String, content: String) {
-        val userId = auth.currentUser?.uid ?: return
-        val currentDateTime = Calendar.getInstance().time
-        val dateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(currentDateTime)
-
-        val key = ContentData.boardRef.push().key.toString()
-
-        ContentData.boardRef
-            .child(key)
-            .setValue(ContentModel(title, content, userId, dateFormat))
-            .addOnSuccessListener {
-                Toast.makeText(requireContext(), "게시글 업로드 성공!", Toast.LENGTH_SHORT).show()
-                ImageUpload(key)
-                findNavController().navigate(R.id.action_boardEditFragment_to_communityFragment)
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "게시글 업로드 실패", Toast.LENGTH_SHORT).show()
-            }
-    }
 
     private fun ImageUpload(key: String) {
         val imageView = binding.imageArea
         if (imageView.drawable == null) {
-            // 이미지가 없을 경우 업로드하지 않음
             return
         }
 
@@ -149,7 +129,6 @@ class BoardEditFragment : Fragment() {
         val storageRef = storage.reference
         val mountainsRef = storageRef.child("$key.png")
 
-        // Get the data from an ImageView as bytes
         imageView.isDrawingCacheEnabled = true
         imageView.buildDrawingCache()
         val bitmap = (imageView.drawable as BitmapDrawable).bitmap
@@ -159,10 +138,9 @@ class BoardEditFragment : Fragment() {
 
         var uploadTask = mountainsRef.putBytes(data)
         uploadTask.addOnFailureListener {
-            // Handle unsuccessful uploads
+
         }.addOnSuccessListener { taskSnapshot ->
-            // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-            // ...
+
         }
     }
 
@@ -173,8 +151,8 @@ class BoardEditFragment : Fragment() {
             selectedImageUri?.let { uri ->
                 binding.imageArea.setImageURI(uri)
                 val layoutParams = binding.imageArea.layoutParams
-                layoutParams.width = 300 // 원하는 너비 설정
-                layoutParams.height = 300 // 원하는 높이 설정
+                layoutParams.width = 300
+                layoutParams.height = 300
                 binding.imageArea.layoutParams = layoutParams
             }
         }

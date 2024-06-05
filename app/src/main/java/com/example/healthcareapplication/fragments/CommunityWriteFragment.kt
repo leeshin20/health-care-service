@@ -80,7 +80,6 @@ class CommunityWriteFragment : Fragment() {
     private fun ImageUpload(key: String) {
         val imageView = binding.imageArea
         if (imageView.drawable == null) {
-            // 이미지가 없을 경우 업로드하지 않음
             return
         }
 
@@ -88,7 +87,6 @@ class CommunityWriteFragment : Fragment() {
         val storageRef = storage.reference
         val mountainsRef = storageRef.child("$key.png")
 
-        // Get the data from an ImageView as bytes
         imageView.isDrawingCacheEnabled = true
         imageView.buildDrawingCache()
         val bitmap = (imageView.drawable as BitmapDrawable).bitmap
@@ -98,10 +96,7 @@ class CommunityWriteFragment : Fragment() {
 
         var uploadTask = mountainsRef.putBytes(data)
         uploadTask.addOnFailureListener {
-            // Handle unsuccessful uploads
         }.addOnSuccessListener { taskSnapshot ->
-            // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-            // ...
         }
     }
 
@@ -112,8 +107,8 @@ class CommunityWriteFragment : Fragment() {
             selectedImageUri?.let { uri ->
                 binding.imageArea.setImageURI(uri)
                 val layoutParams = binding.imageArea.layoutParams
-                layoutParams.width = 300 // 원하는 너비 설정
-                layoutParams.height = 300 // 원하는 높이 설정
+                layoutParams.width = 300
+                layoutParams.height = 300
                 binding.imageArea.layoutParams = layoutParams
             }
         }

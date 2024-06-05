@@ -30,20 +30,16 @@ class CalendarFragment : Fragment() {
 
         binding.CalendarHomeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_homeFragment)
-            Log.d("tag", "home")
         }
         binding.CalendarCommunity.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_communityFragment)
-            Log.d("tag", "co")
         }
         binding.CalendarOption.setOnClickListener {
             it.findNavController().navigate(R.id.action_calendarFragment_to_optionFragment)
-            Log.d("tag", "op")
         }
 
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val date = String.format(Locale.getDefault(), "%d-%02d-%02d", year, month + 1, dayOfMonth)
-            // selectedDateText.text = "Selected date: $date"
             val bundle = bundleOf("user_input" to date)
             findNavController().navigate(R.id.action_calendarFragment_to_recordFragment, bundle)
         }

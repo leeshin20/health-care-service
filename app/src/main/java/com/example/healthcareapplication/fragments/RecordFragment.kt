@@ -134,11 +134,11 @@ private lateinit var binding : FragmentRecordBinding
         val userId = auth.currentUser?.uid ?: return
         val workRef = database.child("users").child(userId).child("exercise").child(date)
 
-        Log.d(ContentValues.TAG, "Fetching work data for date: $date") // 함수가 호출되었는지 확인하는 로그
+        Log.d(ContentValues.TAG, "Fetching work data for date: $date")
 
         workRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d(ContentValues.TAG, "Data snapshot received: ${snapshot.exists()}") // 데이터가 존재하는지 확인하는 로그
+                Log.d(ContentValues.TAG, "Data snapshot received: ${snapshot.exists()}")
 
                 for (childSnapshot in snapshot.children) {
                     val workName = childSnapshot.child("workname").getValue(String::class.java)
@@ -146,16 +146,15 @@ private lateinit var binding : FragmentRecordBinding
                     val weight = childSnapshot.child("weight").getValue(String::class.java)
                     val workInfo = "운동명: $workName, 반복 횟수: $repeat, 무게: $weight kg"
 
-                    Log.d(ContentValues.TAG, "Work fetched: $workInfo") // 각 운동 데이터를 확인하는 로그
+                    Log.d(ContentValues.TAG, "Work fetched: $workInfo")
 
                     if (!workName.isNullOrBlank()) {
-                        addTextView2(workInfo, childSnapshot.key) // 키를 전달하여 삭제 시 참조
+                        addTextView2(workInfo, childSnapshot.key)
                     }
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // 데이터베이스 오류 처리
                 Log.e(ContentValues.TAG, "데이터베이스 오류: ${error.message}")
                 Toast.makeText(requireContext(), "데이터베이스 오류", Toast.LENGTH_SHORT).show()
             }

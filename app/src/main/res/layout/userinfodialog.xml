@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:text="키, 몸무게"/>
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_weight="1"
+            android:text="남자"
+            android:id="@+id/rg_btn1"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:layout_weight="1"
+            android:text="여자"
+            android:id="@+id/rg_btn2"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
+    <EditText
+        android:layout_margin="20dp"
+        android:hint="키"
+        android:id="@+id/height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_margin="20dp"
+        android:hint="몸무게"
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_margin="20dp"
+        android:hint="나이"
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_margin="20dp"
+        android:id="@+id/okbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="등록"/>
+    <Button
+        android:layout_margin="20dp"
+        android:id="@+id/cancelbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="취소"/>
+</LinearLayout>
+</LinearLayout>

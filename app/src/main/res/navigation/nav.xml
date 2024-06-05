@@ -145,7 +145,7 @@
     </fragment>
     <fragment
         android:id="@+id/contentclickFragment"
-        android:name="com.example.healthcareapplication.fragments.`ContentC]lickFragment`"
+        android:name="com.example.healthcareapplication.fragments.ContentClickFragment"
         android:label="fragment_contentclick"
         tools:layout="@layout/fragment_contentclick" >
         <action

@@ -25,7 +25,7 @@ class WorkoutFragment : Fragment() {
     private lateinit var binding: FragmentWorkoutBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
-    private lateinit var workoutContainer: LinearLayout // LinearLayout으로 변경하여 ScrollView에 추가할 뷰 그룹을 참조
+    private lateinit var workoutContainer: LinearLayout
     private var uid = ""
 
     override fun onCreateView(
@@ -56,10 +56,10 @@ class WorkoutFragment : Fragment() {
                     val workout = Workout(workoutName, weightStr, repetitionsStr)
                     saveDataToFirebase(workout)
                 } else {
-                    Toast.makeText(context, "Invalid input for repetitions or weight", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "올바른 값을 입력해주세요", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(context, "Please enter all values", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "모든 값을 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -82,11 +82,11 @@ class WorkoutFragment : Fragment() {
         database.child("users").child(uid).child("exercise").child(date).push().setValue(workout)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "Data saved successfully", Toast.LENGTH_SHORT).show()
-                    // 저장 성공 시 UI 갱신
+                    Toast.makeText(requireContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show()
+
                     fetchWorkoutsForDate(date)
                 } else {
-                    Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "알 수없는 이유로 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
                 }
             }
     }

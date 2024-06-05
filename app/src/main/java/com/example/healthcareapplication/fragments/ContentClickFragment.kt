@@ -43,7 +43,6 @@ class ContentClickFragment : Fragment() {
         }
         key = arguments?.getString("key").toString()
         getImageData(key.toString())
-        Toast.makeText(requireContext(), key, Toast.LENGTH_LONG).show()
         getBoardData(key.toString())
         return view
     }
@@ -104,7 +103,7 @@ class ContentClickFragment : Fragment() {
                 }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "알 수없는 이유로 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
             }
         }
         ContentData.boardRef.child(key).addValueEventListener(postListener)

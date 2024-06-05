@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -33,7 +34,13 @@ class OptionFragment : Fragment() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
+        binding.description.setOnClickListener {
+            showDialog1()
+        }
 
+        binding.release.setOnClickListener {
+            showDialog2()
+        }
         binding.OptionHomeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_optionFragment_to_homeFragment)
             Log.d("tag", "home")
@@ -49,4 +56,31 @@ class OptionFragment : Fragment() {
 
         return view
     }
+    private fun showDialog1(){
+        val mDialogView = LayoutInflater.from(context).inflate(R.layout.description, null)
+        val mBuilder = android.app.AlertDialog.Builder(context)
+            .setView(mDialogView)
+
+
+        val alertDialog = mBuilder.show()
+        val okbutton = mDialogView.findViewById<Button>(R.id.okbtn)
+        okbutton.setOnClickListener{
+            alertDialog.dismiss()
+        }
+    }
+
+    private fun showDialog2(){
+        val mDialogView = LayoutInflater.from(context).inflate(R.layout.releasenote, null)
+        val mBuilder = android.app.AlertDialog.Builder(context)
+            .setView(mDialogView)
+
+
+        val alertDialog = mBuilder.show()
+        val okbutton = mDialogView.findViewById<Button>(R.id.okbtn)
+        okbutton.setOnClickListener{
+            alertDialog.dismiss()
+        }
+    }
+
+
 }
