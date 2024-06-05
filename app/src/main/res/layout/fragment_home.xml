@@ -232,7 +232,6 @@
                             android:textSize="13dp" />
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/foodButtonLinearLayout"
                     android:layout_width="300dp"

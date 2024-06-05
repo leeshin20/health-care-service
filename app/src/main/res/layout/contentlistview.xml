@@ -13,13 +13,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
                 android:fontFamily="@font/inter_bold"
                 android:text="제목 : "/>
@@ -27,10 +28,9 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="250dp"
-                android:layout_height="23dp"
-                android:height="50dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_bold"
-                android:layout_gravity="center_vertical"
                 android:text="title"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -43,7 +43,7 @@
             <TextView
                 android:id="@+id/content"
                 android:layout_width="50dp"
-                android:layout_height="38dp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1.5"
                 android:fontFamily="@font/inter_medium"
