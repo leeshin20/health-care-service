@@ -35,11 +35,11 @@
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
                     android:fontFamily="@font/inter_bold"
                     android:text="(date)"
                     android:textColor="@color/black"
                     android:textSize="30dp"
-                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvYear" />
@@ -80,11 +80,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:fontFamily="@font/inter_bold"
-                                android:text="0000"
-                                android:layout_weight="1"
-                                android:gravity="end"
                                 android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/inter_bold"
+                                android:gravity="end"
+                                android:text="0000"
                                 android:textColor="@color/black" />
 
                             <TextView
@@ -116,11 +116,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:fontFamily="@font/inter_bold"
-                                android:text="0000"
-                                android:layout_weight="1"
-                                android:gravity="end"
                                 android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/inter_bold"
+                                android:gravity="end"
+                                android:text="0000"
                                 android:textColor="@color/black" />
 
                             <TextView
@@ -202,8 +202,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        android:textSize="13dp">
+                        android:textSize="13dp"
+                        tools:ignore="SpeakableTextPresentCheck">
 
                         <LinearLayout
                             android:id="@+id/listView"
@@ -229,7 +229,7 @@
                             android:layout_marginBottom="3dp"
                             android:fontFamily="@font/inter_light"
                             android:textColor="@color/black"
-                            android:textSize="13dp"/>
+                            android:textSize="13dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -237,30 +237,31 @@
                     android:id="@+id/foodButtonLinearLayout"
                     android:layout_width="300dp"
                     android:layout_height="30dp"
-                    app:layout_constraintTop_toBottomOf="@id/todayFoodView"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/todayFoodView">
 
                     <Button
                         android:id="@+id/foodButton"
                         android:layout_width="300dp"
                         android:layout_height="30dp"
+                        android:background="@drawable/button"
+                        android:backgroundTint="@color/lightgray"
                         android:elevation="4dp"
                         android:text="추가하기"
-                        android:background="@drawable/button"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/todayFoodView"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/todayFoodView" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/workoutLinearLayout"
                     android:layout_width="300dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/box_upper_radius"
                     android:backgroundTint="@color/workout_color"
                     android:orientation="horizontal"
-                    android:layout_marginTop="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/foodButtonLinearLayout">
@@ -284,8 +285,8 @@
                     android:layout_height="150dp"
                     android:background="@drawable/outline"
                     android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/workoutLinearLayout">
 
                     <ScrollView
@@ -300,21 +301,23 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"/>
+                            app:layout_constraintStart_toStartOf="parent" />
                     </ScrollView>
 
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="30dp">
+
                         <Button
                             android:id="@+id/workoutButton"
                             android:layout_width="300dp"
                             android:layout_height="30dp"
                             android:background="@drawable/button"
+                            android:backgroundTint="@color/lightgray"
                             android:elevation="4dp"
                             android:gravity="center"
                             android:text="추가하기"
-                            android:textColor="@android:color/black"/>
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                 </LinearLayout>

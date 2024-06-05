@@ -35,7 +35,8 @@ class ContentClickFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         auth = FirebaseAuth.getInstance()
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contentclick, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_contentclick, container, false)
         val view = binding.root
 
         binding.contentset.setOnClickListener {
@@ -47,7 +48,7 @@ class ContentClickFragment : Fragment() {
         return view
     }
 
-    private fun showDialog(){
+    private fun showDialog() {
         val mDialogView = LayoutInflater.from(context).inflate(R.layout.custom_dialog, null)
         val mBuilder = AlertDialog.Builder(context)
             .setView(mDialogView)
@@ -57,7 +58,10 @@ class ContentClickFragment : Fragment() {
         val alertDialog = mBuilder.show()
         alertDialog.findViewById<Button>(R.id.editBtn)?.setOnClickListener {
             val bundle = bundleOf("contentment" to key)
-            findNavController().navigate(R.id.action_contentclickFragment_to_boardEditFragment, bundle)
+            findNavController().navigate(
+                R.id.action_contentclickFragment_to_boardEditFragment,
+                bundle
+            )
             alertDialog.dismiss()
         }
         alertDialog.findViewById<Button>(R.id.deleteBtn)?.setOnClickListener {
@@ -67,46 +71,48 @@ class ContentClickFragment : Fragment() {
             alertDialog.dismiss()
         }
     }
-    private fun getImageData(key :String){
+
+    private fun getImageData(key: String) {
         val storageReference = Firebase.storage.reference.child(key + ".png")
         val imageViewFF = binding.getImage
 
-        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task->
-            if(task.isSuccessful){
+        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
+            if (task.isSuccessful) {
                 Glide.with(this).load(task.result).into(imageViewFF)
-            } else{
+            } else {
             }
         })
 
     }
-    private fun getBoardData(key : String){
+
+    private fun getBoardData(key: String) {
         val userId = auth.currentUser?.uid ?: return
         val postListener = object : ValueEventListener {
             override fun onDataChange(datasnapshot: DataSnapshot) {
 
                 val item = datasnapshot.getValue(ContentModel::class.java)
 
-                if(item != null){
+                if (item != null) {
                     binding.contenttitle.text = item.title
                     binding.contentcontent.text = item.content
                     binding.contenttime.text = item.time
 
                     val writeUid = item.uid
                     Log.d("auth", auth.toString())
-                    if(userId == writeUid){
+                    if (userId == writeUid) {
                         binding.contentset.isVisible = true
-                    } else{
+                    } else {
 
                     }
                 }
-
-                }
+            }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(), "알 수없는 이유로 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "알 수없는 이유로 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
         ContentData.boardRef.child(key).addValueEventListener(postListener)
-        }
-
     }
+
+}
