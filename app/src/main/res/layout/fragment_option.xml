@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,60 +15,151 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="설정"
-        android:gravity="center"
-        android:textSize="50sp"/>
-    <LinearLayout
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
 
-        <LinearLayout
-            android:background="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <Button
-        android:layout_marginTop="50dp"
-        android:layout_margin="20dp"
-        android:id="@+id/signout"
-        android:text="회원탈퇴"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:layout_marginTop="20dp"
-        android:layout_margin="20dp"
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="약관설명"/>
-    <Button
-        android:text="패치노트"
-        android:layout_margin="20dp"
-        android:id="@+id/release"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-</LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:gravity="center"
+                        android:text="설정"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="right"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GUEST"
+                            android:textSize="20dp"
+
+                            android:fontFamily="@font/inter_medium"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/lightgray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+                    <Button
+                        android:id="@+id/edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:text="정보 수정"
+                        android:padding="20dp"
+                        android:fontFamily="@font/inter_light"
+                        android:gravity="center_vertical|start"
+                        android:background="@drawable/button"
+                        android:backgroundTint="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/lightgray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+                    <Button
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:text="약관설명"
+                        android:padding="20dp"
+                        android:fontFamily="@font/inter_light"
+                        android:gravity="center_vertical|start"
+                        android:background="@drawable/button"
+                        android:backgroundTint="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/lightgray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+                    <Button
+                        android:id="@+id/release"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:text="패치노트"
+                        android:padding="20dp"
+                        android:fontFamily="@font/inter_light"
+                        android:gravity="center_vertical|start"
+                        android:background="@drawable/button"
+                        android:backgroundTint="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/lightgray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+                    <Button
+                        android:id="@+id/signout"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:text="회원탈퇴"
+                        android:padding="20dp"
+                        android:fontFamily="@font/inter_light"
+                        android:gravity="center_vertical|start"
+                        android:background="@drawable/button"
+                        android:backgroundTint="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:background="@color/lightgray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+
+                </LinearLayout>
                 <!--하단 검정 박스 -->
                 <LinearLayout
                     android:id="@+id/linearLayout6"
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -81,10 +172,15 @@
                         android:layout_weight="1" />
 
                     <LinearLayout
-                        android:background="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout

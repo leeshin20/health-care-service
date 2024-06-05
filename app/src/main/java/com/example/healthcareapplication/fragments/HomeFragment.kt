@@ -1,5 +1,8 @@
 package com.example.healthcareapplication.fragments
+
 import android.content.ContentValues.TAG
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -57,14 +60,14 @@ class HomeFragment : Fragment() {
             it.findNavController().navigate(R.id.action_homeFragment_to_optionFragment)
             Log.d("option", "option1")
         }
-        binding.statusBox.setOnClickListener{
+        binding.statusBox.setOnClickListener {
             showDialog()
         }
         // button2 = 음식 검색 workoutBtn = 운동 추가
         binding.foodButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        binding.workoutButton.setOnClickListener{
+        binding.workoutButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_workoutFragment)
         }
         return binding.root
@@ -85,7 +88,8 @@ class HomeFragment : Fragment() {
         fetchworkData(dbdate)
 
     }
-    private fun fetchNutri(date: String){
+
+    private fun fetchNutri(date: String) {
         val userId = auth.currentUser?.uid ?: return
         val nutritionRef = database.child("users").child(userId).child("nutrition").child(date)
         nutritionRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -111,16 +115,16 @@ class HomeFragment : Fragment() {
                     totalSodium += sodium
                     totalSugars += sugars
                 }
-                binding.rightText.append("""
+                binding.rightText.append(
+                    """
                         칼로리: ${totalCalories} kcal
                         탄수화물: ${totalCarbs} g
                         단백질: ${totalProtein} g
                         당류: ${totalSugars} g
                         나트륨: ${totalSodium} mg
-                    """.trimIndent())
-                binding.eatKcal.setText("""
-                    ${totalCalories}kcal
-                """.trimIndent())
+                    """.trimIndent()
+                )
+                binding.eatKcal.setText(String.format("%.0f", totalCalories))
                 fetchmetakcal()
             }
 
@@ -155,8 +159,9 @@ class HomeFragment : Fragment() {
     private fun addTextView(foodname: String) {
         val textView = TextView(requireContext())
         textView.text = foodname
-        textView.textSize = 18f
+        textView.textSize = 13f
         textView.setPadding(16, 16, 16, 16)
+        textView.setTextColor(Color.BLACK)
         containerLayout.addView(textView)
 
         textView.setOnClickListener {
@@ -187,7 +192,8 @@ class HomeFragment : Fragment() {
                     val name = childSnapshot.child("foodname").getValue(String::class.java)
                     if (name == foodname) {
                         childSnapshot.ref.removeValue() // Firebase에서 삭제
-                        Toast.makeText(requireContext(), "$foodname 삭제 완료", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "$foodname 삭제 완료", Toast.LENGTH_SHORT)
+                            .show()
                         fetchNutri(date)
                         fetchmetakcal()
                         break
@@ -201,6 +207,7 @@ class HomeFragment : Fragment() {
             }
         })
     }
+
     //운동 함수
     private fun fetchworkData(date: String) {
         val userId = auth.currentUser?.uid ?: return
@@ -214,7 +221,7 @@ class HomeFragment : Fragment() {
                     val workName = childSnapshot.child("workname").getValue(String::class.java)
                     val repeat = childSnapshot.child("repeat").getValue(String::class.java)
                     val weight = childSnapshot.child("weight").getValue(String::class.java)
-                    val workInfo = "운동명: $workName, 반복 횟수: $repeat, 무게: $weight kg"
+                    val workInfo = "$workName / $weight kg / $repeat 회"
 
                     if (!workName.isNullOrBlank()) {
                         addTextView2(workInfo, childSnapshot.key)
@@ -232,8 +239,9 @@ class HomeFragment : Fragment() {
     private fun addTextView2(workInfo: String, workId: String?) {
         val textView1 = TextView(requireContext())
         textView1.text = workInfo
-        textView1.textSize = 18f
+        textView1.textSize = 13f
         textView1.setPadding(16, 16, 16, 16)
+        textView1.setTextColor(Color.BLACK)
         containerLayout2.addView(textView1)
 
         textView1.setOnClickListener {
@@ -256,7 +264,8 @@ class HomeFragment : Fragment() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = dateFormat.format(Date())
 
-        val workRef = database.child("users").child(userId).child("exercise").child(date).child(workId ?: return)
+        val workRef = database.child("users").child(userId).child("exercise").child(date)
+            .child(workId ?: return)
 
         workRef.removeValue().addOnSuccessListener {
             Toast.makeText(requireContext(), "운동 삭제 완료", Toast.LENGTH_SHORT).show()
@@ -266,7 +275,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun fetchmetakcal(){
+    private fun fetchmetakcal() {
         val userId = auth.currentUser?.uid ?: return
         val info = database.child("users").child(userId).child("userinfo")
 
@@ -282,25 +291,31 @@ class HomeFragment : Fragment() {
                     Log.d("gender", height.toString())
                     Log.d("gender", userweight.toString())
                     Log.d("gender", age.toString())
-                    if(gender == "남자"){
+                    if (gender == "남자") {
                         metabolism = calculateMetabolismForMale(height, userweight, age).toString()
-                        binding.metabolismKcal.text = "${metabolism}kcal"
-                    }
-                    else if(gender == "여자"){
-                        metabolism = calculateMetabolismForFemale(height, userweight, age).toString()
-                        binding.metabolismKcal.text = "${metabolism}kcal"
+                        binding.metabolismKcal.text = "${metabolism}"
+                    } else if (gender == "여자") {
+                        metabolism =
+                            calculateMetabolismForFemale(height, userweight, age).toString()
+                        binding.metabolismKcal.text = "${metabolism}"
                     }
 
-                    val todayWeight = ((metabolism.toInt() - totalCalories)/7700)
-                    val formattedWeight = String.format("%.3f", todayWeight)
-                    binding.TodayWeight.text = "${formattedWeight}Kcal"
+                    val weightChange = ((totalCalories - metabolism.toInt()) / 7700)
+                    val formattedWeight = String.format("%.3f", weightChange)
+                    if (weightChange >= 0) {
+                        binding.weightChange.text = "+${formattedWeight} kg"
+                        binding.weightChange.setTextColor(Color.RED)
+                    } else if (weightChange < 0) {
+                        binding.weightChange.text = "${formattedWeight} kg"
+                        binding.weightChange.setTextColor(Color.BLUE)
+                    }
 
                 }
 
             }
 
             override fun onCancelled(error: DatabaseError) {
-                 Log.e(TAG, "데이터베이스 오류: ${error.message}")
+                Log.e(TAG, "데이터베이스 오류: ${error.message}")
                 Toast.makeText(requireContext(), "데이터베이스 오류", Toast.LENGTH_SHORT).show()
             }
         })
@@ -317,6 +332,7 @@ class HomeFragment : Fragment() {
 
         return metabolism
     }
+
     private fun calculateMetabolismForMale(height: String?, weight: String?, age: String?): Int {
         val h = height?.toIntOrNull() ?: 0
         val w = weight?.toIntOrNull() ?: 0
@@ -327,11 +343,11 @@ class HomeFragment : Fragment() {
         return metabolism
     }
 
-    private fun showDialog(){
+    private fun showDialog() {
         val mDialogView = LayoutInflater.from(context).inflate(R.layout.userinfodialog, null)
         val mBuilder = android.app.AlertDialog.Builder(context)
             .setView(mDialogView)
-            .setTitle("키/몸무게 수정")
+            .setTitle("정보 변경")
 
 
         val alertDialog = mBuilder.show()
@@ -356,7 +372,12 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun saveUserInfoToFirebase(height: String, weight: String, gender: String, age : String) {
+    private fun saveUserInfoToFirebase(
+        height: String,
+        weight: String,
+        gender: String,
+        age: String
+    ) {
         val userId = auth.currentUser?.uid ?: return
         val userInfo = mapOf(
             "height" to height,
@@ -376,8 +397,7 @@ class HomeFragment : Fragment() {
 
         fetchmetakcal()
     }
-
-    }
+}
 
 
 

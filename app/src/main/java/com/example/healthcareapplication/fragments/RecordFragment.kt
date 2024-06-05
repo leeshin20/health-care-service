@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class RecordFragment : Fragment() {
-private lateinit var binding : FragmentRecordBinding
+    private lateinit var binding: FragmentRecordBinding
     private lateinit var database: DatabaseReference
     private lateinit var containerLayout: ViewGroup
     private lateinit var containerLayout2: ViewGroup
@@ -49,13 +49,25 @@ private lateinit var binding : FragmentRecordBinding
             fetchData(date)
             fetchNutri(date)
             fetchworkData(date)
-        } else{
+        } else {
             Toast.makeText(requireContext(), "날짜 오류!!", Toast.LENGTH_SHORT).show()
         }
         val view = binding.root
         return view
     }
-    private fun fetchNutri(date: String){
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Get the arguments passed from the previous fragment
+        val date = arguments?.getString("user_input")
+
+        // Use the date information as needed
+        val dateTextView = view.findViewById<TextView>(R.id.dateTextView)
+        dateTextView.text = date
+    }
+
+    private fun fetchNutri(date: String) {
         val userId = auth.currentUser?.uid ?: return
         val nutritionRef = database.child("users").child(userId).child("nutrition").child(date)
         nutritionRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -80,13 +92,15 @@ private lateinit var binding : FragmentRecordBinding
                     totalSodium += sodium
                     totalSugars += sugars
                 }
-                binding.secondTextView.append("""
+                binding.secondTextView.append(
+                    """
                         칼로리: ${totalCalories} kcal
                         탄수화물: ${totalCarbs} g
                         단백질: ${totalProtein} g
                         당류: ${totalSugars} g
                         나트륨: ${totalSodium} mg
-                    """.trimIndent())
+                    """.trimIndent()
+                )
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -123,7 +137,7 @@ private lateinit var binding : FragmentRecordBinding
     private fun addTextView(foodname: String) {
         val textView = TextView(requireContext())
         textView.text = foodname
-        textView.textSize = 18f
+        textView.textSize = 15f
         textView.setPadding(16, 16, 16, 16)
         containerLayout.addView(textView)
     }
@@ -144,7 +158,7 @@ private lateinit var binding : FragmentRecordBinding
                     val workName = childSnapshot.child("workname").getValue(String::class.java)
                     val repeat = childSnapshot.child("repeat").getValue(String::class.java)
                     val weight = childSnapshot.child("weight").getValue(String::class.java)
-                    val workInfo = "운동명: $workName, 반복 횟수: $repeat, 무게: $weight kg"
+                    val workInfo = "$workName x $weight kg x $repeat 회"
 
                     Log.d(ContentValues.TAG, "Work fetched: $workInfo")
 
@@ -164,12 +178,9 @@ private lateinit var binding : FragmentRecordBinding
     private fun addTextView2(workInfo: String, workId: String?) {
         val textView1 = TextView(requireContext())
         textView1.text = workInfo
-        textView1.textSize = 18f
+        textView1.textSize = 15f
         textView1.setPadding(16, 16, 16, 16)
         containerLayout2.addView(textView1)
 
     }
-
-
-
-    }
+}

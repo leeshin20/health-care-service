@@ -10,7 +10,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#e9ecef"
+            android:background="@color/white"
             tools:context=".fragments.CalendarFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,25 +18,39 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/calendarTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="#e9ecef"
+                    android:layout_height="70dp"
+                    android:fontFamily="@font/inter_bold"
                     android:gravity="center"
                     android:text="달력"
-                    android:textSize="50dp"
-                    app:layout_constraintBottom_toTopOf="@+id/calendarView" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    app:layout_constraintTop_toBottomOf="@id/calendarTitle">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/black" />
+                </LinearLayout>
 
                 <CalendarView
                     android:id="@+id/calendarView"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginHorizontal="15dp"
                     android:background="@drawable/background_radius"
-                    app:layout_constraintBottom_toTopOf="@id/linearLayout6"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/line"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:backgroundTint="@color/white"/>
 
                 <LinearLayout
                     android:id="@+id/linearLayout6"

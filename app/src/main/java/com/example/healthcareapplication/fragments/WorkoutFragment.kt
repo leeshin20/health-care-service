@@ -115,12 +115,12 @@ class WorkoutFragment : Fragment() {
     }
 
     private fun addWorkoutTextView(workout: Workout) {
-        val workoutInfo = "운동명: ${workout.workname}, 무게: ${workout.weight}kg ,반복: ${workout.repeat}회"
+        val workoutInfo = "${workout.workname} / ${workout.weight}kg / ${workout.repeat}회"
 
         val textView = TextView(requireContext())
         textView.text = workoutInfo
-        textView.textSize = 18f
-        textView.setPadding(16, 16, 16, 16)
+        textView.textSize = 14f
+        textView.setPadding(20, 16, 20, 16)
         workoutContainer.addView(textView)
 
         textView.setOnClickListener {

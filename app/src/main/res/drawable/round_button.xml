@@ -1,5 +1,0 @@
-<!-- round_button.xml -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/gray" /> <!-- 버튼 배경 색상 -->
-    <corners android:radius="50dp" /> <!-- 둥근 모서리 반지름 -->
-</shape>

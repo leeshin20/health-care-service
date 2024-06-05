@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="패치노트"
+        android:text="업데이트"
         android:textSize="50dp"
         android:gravity="center"/>
     <LinearLayout

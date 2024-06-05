@@ -4,12 +4,16 @@
     <string name="search">Search</string>
     <string name="calendar">Calendar</string>
     <string name="profile">Profile</string>
-    <string name="search_hint">검색어를 입력하세요</string>
+    <string name="search_hint_food">음식을 입력하세요</string>
+    <string name="search_hint_workout">운동을 입력하세요</string>
     <string name="search_results_scrollview_description">Search results</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="release">
         버전1.0
+    </string>
+    <string name="realeseNote">
+        공개되었습니다.
     </string>
     <string name="description">
         회원 탈퇴\n

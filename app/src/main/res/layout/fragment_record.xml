@@ -1,78 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.RecordFragment">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <!--전체 레이아웃-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="130dp"/>
-            <!--첫번째 레이아웃-->
+            <!--전체 레이아웃-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <ScrollView
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dateTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="30dp">
-                    <TextView
-                        android:id="@+id/secondTextView"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </ScrollView>
+                    android:layout_height="130dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:gravity="center"
+                    android:text="(Date)"
+                    android:textColor="@color/black"
+                    android:textSize="30dp" />
 
-            </LinearLayout>
-            <!--두번째 레이아웃-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <ScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="30dp">
-                    <LinearLayout
-                        android:id="@+id/firstTextView"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"/>
+                    android:layout_height="3dp"
+                    android:background="@color/black" />
 
-
-                </ScrollView>
-
-            </LinearLayout>
-            <!--세번째 레이아웃-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <ScrollView
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="30dp">
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:padding="10dp"
+                    android:text="섭취 영양" />
 
-                    <LinearLayout
-                        android:id="@+id/thirdTextView"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
+
+                <!--첫번째 레이아웃-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"/>
-                </ScrollView>
+                        android:layout_height="match_parent">
 
+                        <TextView
+                            android:id="@+id/secondTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:fontFamily="@font/inter_medium" />
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:padding="10dp"
+                    android:text="식단" />
+
+                <!--두번째 레이아웃-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/firstTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:fontFamily="@font/inter_medium"
+                            android:orientation="vertical" />
+                    </ScrollView>
+                </LinearLayout>
+                <!--세번째 레이아웃-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:padding="10dp"
+                    android:text="운동" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/thirdTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:fontFamily="@font/inter_medium"
+                            android:orientation="vertical" />
+                    </ScrollView>
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </layout>
